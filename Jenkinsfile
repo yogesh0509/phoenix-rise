@@ -59,6 +59,15 @@ pipeline {
                 sh 'curl -f http://localhost:5000/api/v2/monitor || exit 1'
             }
         }
+
+        stage('Run Tests') {
+            steps {
+                // Run tests for both good and bad endpoints
+                sh '''
+                    . venv/bin/activate && pytest test_app.py
+                '''
+            }
+        }
     }
     
     post {
