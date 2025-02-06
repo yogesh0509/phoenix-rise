@@ -15,4 +15,4 @@ def test_monitor_endpoint(client):
 def test_invalid_endpoint(client):
     response = client.get('/api/v2/invalid-endpoint')
     assert response.status_code == 404  # Expecting a 404 Not Found status
-    assert response.json == {"error": "Not Found"}  # Adjust based on your API's error response format
+    assert response.json == {"error": "Not Found"}  # This matches the custom error response
